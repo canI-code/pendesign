@@ -156,8 +156,8 @@ export default function AnalyticsPage() {
         },
         {
             title: "Avg Event Rating",
-            value: events.filter(e => e.rating > 0).length > 0 
-                ? (events.filter(e => e.rating > 0).reduce((sum, e) => sum + e.rating, 0) / events.filter(e => e.rating > 0).length).toFixed(1)
+            value: events.filter(e => (e.rating ?? 0) > 0).length > 0 
+                ? (events.filter(e => (e.rating ?? 0) > 0).reduce((sum, e) => sum + (e.rating ?? 0), 0) / events.filter(e => (e.rating ?? 0) > 0).length).toFixed(1)
                 : "N/A",
             detail: `${events.filter(e => e.reviews && e.reviews.length > 0).length} reviewed`,
             icon: <Star className="h-5 w-5" />,
