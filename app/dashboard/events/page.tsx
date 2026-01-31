@@ -291,11 +291,11 @@ export default function EventsPage() {
                             </div>
 
                             {/* Rating */}
-                            {event.rating > 0 && (
+                            {(event.rating ?? 0) > 0 && (
                                 <div className="flex items-center gap-2 mb-3">
-                                    {renderStars(Math.round(event.rating))}
+                                    {renderStars(Math.round(event.rating ?? 0))}
                                     <span className="text-neutral-400 text-sm">
-                                        ({event.rating.toFixed(1)}) · {event.reviews?.length || 0} reviews
+                                        ({(event.rating ?? 0).toFixed(1)}) · {event.reviews?.length || 0} reviews
                                     </span>
                                 </div>
                             )}
@@ -545,10 +545,10 @@ export default function EventsPage() {
                                 >
                                     {selectedEvent.status.toUpperCase()}
                                 </span>
-                                {selectedEvent.rating > 0 && (
+                                {(selectedEvent.rating ?? 0) > 0 && (
                                     <div className="flex items-center gap-2">
-                                        {renderStars(Math.round(selectedEvent.rating))}
-                                        <span className="text-white font-semibold">{selectedEvent.rating.toFixed(1)}</span>
+                                        {renderStars(Math.round(selectedEvent.rating ?? 0))}
+                                        <span className="text-white font-semibold">{(selectedEvent.rating ?? 0).toFixed(1)}</span>
                                     </div>
                                 )}
                             </div>
